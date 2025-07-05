@@ -1,0 +1,209 @@
+/* ========== GLOBAL RESET & VARIABLES ========== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #1d2b64, #f8cdda);
+  --secondary-gradient: linear-gradient(135deg, #ff6a00, #ee0979);
+  --accent-gradient: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --shadow-light: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 25px 80px rgba(0, 0, 0, 0.25);
+  --text-primary: #1c1c1e;
+  --text-secondary: #5e5e5e;
+  --transition: all 0.35s ease-in-out;
+  --radius: 24px;
+  --font-primary: 'Nunito', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 30px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(120deg, #c80570e1, #00a7fb);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  width: 98%;
+  max-width: 2500px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== HEADINGS ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 6.5rem;
+  text-align: center;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-secondary);
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text-secondary);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 5px;
+  background: var(--accent-gradient);
+  border-radius: 3px;
+}
+
+/* ========== MODULE CARD ========== */
+.module {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin: 3rem 0;
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+  position: relative;
+}
+
+.module:hover {
+  box-shadow: var(--shadow-heavy);
+  transform: translateY(-10px);
+}
+
+/* ========== BUTTON STYLING ========== */
+button {
+  background: var(--primary-gradient);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--font-secondary);
+}
+
+button:hover {
+  transform: scale(1.07);
+  background: var(--secondary-gradient);
+}
+
+/* ========== INPUTS ========== */
+input, textarea, select {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid #b889fd;
+  background: #ffb9e3;
+  font-size: 7rem;
+  font-family: var(--font-primary);
+  transition: var(--transition);
+  margin-top: 1.2rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #7f5af0;
+  outline: none;
+  box-shadow: 0 0 0 7px rgba(127, 90, 240, 0.25);
+}
+
+/* ========== VIDEO & AUDIO ========== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+}
+
+audio {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 1.5rem;
+  border-radius: var(--radius);
+}
+
+/* ========== DARK MODE ========== */
+body.dark {
+  background: linear-gradient(135deg, #121212, #620444);
+  color: #eee;
+}
+
+body.dark .module {
+  background: rgba(0, 0, 0, 0.07);
+  color: #eee;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark input, body.dark textarea, body.dark select {
+  background: #2b2b2b;
+  color: #eee;
+  border: 1px solid #666;
+}
+
+body.dark h1 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .module {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+}
